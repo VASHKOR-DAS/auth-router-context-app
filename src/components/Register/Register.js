@@ -16,11 +16,13 @@ const Register = () => {
         console.log(name, email, password);
 
 
-        
+
         createUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log('registered user', user);
+                // reset from after register
+                form.reset();
             })
             .catch(error => {
                 console.error(error);

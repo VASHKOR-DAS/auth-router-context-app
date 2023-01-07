@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/UserContext';
 
 const Header = () => {
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     // console.log(user);
     return (
         <div>
@@ -14,7 +14,7 @@ const Header = () => {
                 <Link className="btn btn-ghost normal-case text-xl" to='/register'>Register</Link>
 
                 {/* Jodi user er majhe displayName thake tahole seta dekhao */}
-                {user?.displayName && <span>Welcome, {user.displayName}</span> }
+                {user?.email && <span>Welcome, {user.email}</span>}
             </div>
         </div>
     );
