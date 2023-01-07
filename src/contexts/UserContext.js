@@ -11,7 +11,7 @@ const UserContext = ({ children }) => {
     const [user, setUser] = useState({ displayName: 'Aakash' });
 
     // auth Info er majhe userInfo holo property name, ai name tar majhe user er sob info jekhane khusi ai property name diye access kora jabe, userInfo means this object { displayName: 'Aakash' }
-    const authInfo = { userName: user }
+    const authInfo = { user: user }
 
     return (
         <AuthContext.Provider value={authInfo}>
