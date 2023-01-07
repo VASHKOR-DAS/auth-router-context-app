@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import app from '../firebase/firebase.config';
 
 export const AuthContext = createContext(); // AuthContext amader Context name
@@ -19,6 +19,14 @@ const UserContext = ({ children }) => {
     const signIn = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
+
+    // signOut method apply (firebase a signOut ase, tai atar name logOut dewa hoyeche)
+    const logOut = () => {
+        return signOut(auth);
+    }
+
+
+
 
     // user jevabei(Google, Fb, etc etc diye) login/register (means, auth er state change hole ata ai place theke track korbe, r jehe2 ata bairer 1ta jinish (amader nijosso kono function na) tai ata API er moto useEffect er moto call korbo, jeno generally authState change korle (user login, registered, signOut) onAuthStateChanged amader change ta set kore dibe )
     //dependency useEffect(() => { }, [])
@@ -51,7 +59,7 @@ const UserContext = ({ children }) => {
     const obj = {a, b} 
     console.log(obj) //its return {a: '55', b: 'abc'}
     */
-    const authInfo = { user, createUser, signIn }
+    const authInfo = { user, createUser, signIn, logOut }
 
     return (
         <AuthContext.Provider value={authInfo}>
