@@ -14,6 +14,7 @@ Basic Context API Setup
 Auth Integration
 ----------------------------
 1. use getAuth by passing the app from firebase config
+2. create a function named createUser to createUserWithEmailAndPassword (in userContext component)
 /*
 
 
