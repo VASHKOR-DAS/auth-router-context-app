@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/UserContext';
 
 const Header = () => {
-    const { user, logOut } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext);
+
     // console.log(user);
 
     const handleLogOut = () => {
@@ -21,11 +22,17 @@ const Header = () => {
                 <Link className="btn btn-ghost normal-case text-xl" to='/login'>Log in</Link>
                 <Link className="btn btn-ghost normal-case text-xl" to='/register'>Register</Link>
 
-                {/* Jodi user er majhe displayName thake tahole seta dekhao */}
-                {user?.email && <span>Welcome, {user.email}</span>}
+                {/* Jodi user er majhe displayName(email) thake tahole seta dekhao */}
+
+                {
+                    user?.email
+                    && <h2>Welcome, {user.email}</h2>
+                }
+
+
                 <button onClick={handleLogOut} className='btn btn-sm ml-5'>Log out</button>
             </div>
-        </div>
+        </div >
     );
 };
 

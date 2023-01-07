@@ -5,10 +5,14 @@ import { AuthContext } from '../../contexts/UserContext';
 
 
 const Home = () => {
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     return (
         <div>
-            <h2>This is Home for {user.email}</h2>
+            {
+                user
+                    ? <h2>This is Home for {user.email}</h2>
+                    : <span>No user found</span>
+            }
         </div>
     );
 };
