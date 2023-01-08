@@ -1,10 +1,13 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/UserContext';
 
 const Login = () => {
     const { signIn } = useContext(AuthContext);
     // console.log(signIn);
+
+    //user successfully login hoye gele take / route a niye jabe
+    const navigate = useNavigate();
 
 
     const handleSubmit = event => {
@@ -21,6 +24,8 @@ const Login = () => {
                 console.log('signIn user', user);
                 // reset from after login
                 form.reset();
+                //user successfully login hoye gele take / route a niye jabe
+                navigate('/');
             })
             .catch(error => {
                 console.error(error);
