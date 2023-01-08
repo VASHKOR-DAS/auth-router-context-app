@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/UserContext';
 
 const Register = () => {
 
     const { createUser, signInWithGoogle } = useContext(AuthContext);
     // console.log(createUser);
+
+    //user successfully registered hoye gele take /login route a niye jabe
+    const navigate = useNavigate();
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -23,6 +26,8 @@ const Register = () => {
                 console.log('registered user', user);
                 // reset from after register
                 form.reset();
+                //user successfully registered hoye gele take /login route a niye jabe
+                navigate('/login');
             })
             .catch(error => {
                 console.error(error);
@@ -88,7 +93,7 @@ const Register = () => {
                             </div>
 
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
+                                <button className="btn btn-primary">Register</button>
                             </div>
                         </form>
                         <button onClick={handleGoogleSignIn} className='btn btn-outline btn-success'>Google</button>
