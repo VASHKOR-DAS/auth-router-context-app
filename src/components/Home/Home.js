@@ -8,8 +8,10 @@ const Home = () => {
     const { user } = useContext(AuthContext);
     return (
         <div>
+
+            {/* user er moddhe jodi email thake tahole */}
             {
-                user
+                user?.email
                     ? <h2>This is Home for {user.email}</h2>
                     : <span>No user found</span>
             }
