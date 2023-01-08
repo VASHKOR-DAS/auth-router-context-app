@@ -8,7 +8,10 @@ const auth = getAuth(app);
 
 const UserContext = ({ children }) => {
 
-    const [user, setUser] = useState({ displayName: 'Aakash' });
+    const [user, setUser] = useState({});
+
+    // jokhon page loading hobe tokhon sprier dekhabo
+    const [loading, setLoading] = useState(true);
 
     // signIn with google
     const googleProvider = new GoogleAuthProvider();
@@ -42,6 +45,9 @@ const UserContext = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
             console.log('auth state changed', currentUser);
+
+            // jokhon kono user/error pabe tokhon loging(sprier) off hye jabe
+            setLoading(false);
         })
 
         return () => {
@@ -67,7 +73,7 @@ const UserContext = ({ children }) => {
     const obj = {a, b} 
     console.log(obj) //its return {a: '55', b: 'abc'}
     */
-    const authInfo = { user, createUser, signIn, logOut, signInWithGoogle }
+    const authInfo = { user, createUser, signIn, logOut, signInWithGoogle, loading }
 
     return (
         <AuthContext.Provider value={authInfo}>

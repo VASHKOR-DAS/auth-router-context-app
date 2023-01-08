@@ -6,7 +6,7 @@ import Register from './components/Register/Register'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import Orders from './components/Orders/Orders';
-import PrivateRoute from './components/Orders/PrivateRoute';
+import PrivateRoute from './routes/PrivateRoute';
 
 function App() {
   const router = createBrowserRouter([
