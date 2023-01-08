@@ -4,7 +4,7 @@ import { AuthContext } from '../../contexts/UserContext';
 
 const Register = () => {
 
-    const { createUser } = useContext(AuthContext);
+    const { createUser, signInWithGoogle } = useContext(AuthContext);
     // console.log(createUser);
 
     const handleSubmit = event => {
@@ -29,6 +29,25 @@ const Register = () => {
             })
 
     }
+
+
+
+
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+    }
+
+
+
+
+
+
+
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -69,6 +88,7 @@ const Register = () => {
                                 <button className="btn btn-primary">Login</button>
                             </div>
                         </form>
+                        <button onClick={handleGoogleSignIn} className='btn btn-outline btn-success'>Google</button>
                     </div>
                 </div>
             </div>
