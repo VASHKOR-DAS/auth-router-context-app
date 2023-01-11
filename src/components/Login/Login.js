@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/UserContext';
 
 const Login = () => {
@@ -8,6 +8,10 @@ const Login = () => {
 
     //user successfully login hoye gele take / route a niye jabe
     const navigate = useNavigate();
+
+    // right route setup
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
 
 
     const handleSubmit = event => {
@@ -25,7 +29,7 @@ const Login = () => {
                 // reset from after login
                 form.reset();
                 //user successfully login hoye gele take / route a niye jabe
-                navigate('/');
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error(error);

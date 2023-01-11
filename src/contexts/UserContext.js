@@ -18,21 +18,25 @@ const UserContext = ({ children }) => {
 
     // createUserWithEmailAndPassword(auth, email, password) method apply
     const createUser = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     // signIn method apply
     const signIn = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     // signInWithGoogle method apply
     const signInWithGoogle = () => {
+        setLoading(true);
         return signInWithPopup(auth, googleProvider);
     }
 
     // signOut method apply (firebase a signOut ase, tai atar name logOut dewa hoyeche)
     const logOut = () => {
+        setLoading(true);
         return signOut(auth);
     }
 
